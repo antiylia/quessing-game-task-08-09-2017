@@ -1,9 +1,8 @@
-package by.htp.padawanssecond;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class StudentGroup {
+public class StudentGroup implements StudentArrayOperation {
 /*
 array length should always be equal to the number of stored elements
 after the element was removed the size of the array should be equal to the number of stored elements
@@ -12,7 +11,7 @@ null elements are not allowed to be stored in the array
  */
 	
 	private Student[] students;
-	int size = 0;
+	private int size = 0;
 
 	public StudentGroup() {
 		students = new Student[2];
@@ -25,7 +24,16 @@ null elements are not allowed to be stored in the array
 		this.size = length;
 	}
 
-	
+
+	public int getSize() {
+		return size;
+	}
+
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 
 	// implementation
 	public Student[] getStudents() {
@@ -164,13 +172,11 @@ null elements are not allowed to be stored in the array
 			for (int i = 0; i < students.length; i++) { 
 				if (student.equals(students[i])) {
 					index = i;
-					break;
-				} else {
-					throw new IllegalArgumentException("Student not exist");		
+					return index;
 				}
-		     }
-		return index;
-	  }
+			}
+		    throw new IllegalArgumentException("Student not exist");		
+		 }
 
 	
 	
@@ -234,19 +240,18 @@ null elements are not allowed to be stored in the array
 		
 	
 	public void bubbleSort() {
-		for (int i = 0; i < students.length - 1; i++) {
-			for (int j = 0; j < i; j++) {
-				if (students[j].compareTo(students[j + 1]) > 0) {
-					Student buffer = students[j];
-					students[j] = students[j + 1];
-					students[j + 1] = buffer;
+		for (int prohod = 0; prohod < students.length - 1; prohod++) {
+			int x,y;
+			 for (x=0,y=1;   x< students.length & y< students.length; x++,y++){
+				if (students[x].compareTo(students[y]) > 0) {
+					Student buffer = students[x];
+					students[x] = students[y];
+					students[y] = buffer;
 				}
 			}
 		}
 	}
 
-		
-	
 	public Student[] getByBirthDate(Date date) {
 		if (date == null) {
 			throw new IllegalArgumentException();
@@ -321,7 +326,7 @@ null elements are not allowed to be stored in the array
 	//  one checking ????    ( if indexOfStudent == 0)
 	
 	public int getCurrentAgeByDate(int indexOfStudent) {
-		if (indexOfStudent >= students.length || indexOfStudent <= 0) {
+		if (indexOfStudent >= students.length || indexOfStudent < 0) {
 			throw new IllegalArgumentException();
 		}
 		int age = 0;

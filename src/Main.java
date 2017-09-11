@@ -1,4 +1,3 @@
-package by.htp.padawanssecond;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +20,8 @@ public class Main {
 				                new Student(4, "Bob Smith4", date4, 9.2),
 				                new Student(5, "Bob Smith5", date5, 9.1)};
 		
-				
+		Student student1 = 	 new Student(4, "Bob Smith4", date4, 9.2);	
+		
 		StudentGroup studentGroup  = new StudentGroup (students.length);
 		studentGroup.setStudents(students);
 			
@@ -47,6 +47,17 @@ public class Main {
 		}
 		System.out.println();
 				
+		System.out.println(studentGroup.getSize());
+		studentGroup.add(new Student (6, "Bob Smith6", date4, 8.9), 2);
+		System.out.println(studentGroup.getSize());
+		
+	    
+		studentGroup.remove(student1);
+			
+		for (Student a: studentGroup.getStudents()) {
+			System.out.println(a.toString());
+		}
+		System.out.println();
 		
   }
 		

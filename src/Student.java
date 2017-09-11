@@ -1,5 +1,3 @@
-package by.htp.padawanssecond;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -106,24 +104,24 @@ public class Student implements Comparable {
 		if (this == obj)
 			return true;
 		if (obj == null)
-			return false;
+			return false; 
 		if (getClass() != obj.getClass())
-			return false;
+			return false;  
 		Student other = (Student) obj;
 		if (Double.doubleToLongBits(avgMark) != Double.doubleToLongBits(other.avgMark))
-			return false;
+			return false;  
 		if (birthDate == null) {
 			if (other.birthDate != null)
 				return false;
 		} else if (!birthDate.equals(other.birthDate))
-			return false;
+			return false; 
 		if (fullName == null) {
 			if (other.fullName != null)
-				return false;
+				return false; 
 		} else if (!fullName.equals(other.fullName))
-			return false;
-		if (id != other.id)
-			return false;
+			return false;  
+	/*	 if (id != other.id)
+			return false;  */
 		return true;
 	}
 

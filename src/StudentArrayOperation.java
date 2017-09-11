@@ -1,4 +1,3 @@
-package by.htp.padawanssecond;
 
 import java.util.Date;
 
